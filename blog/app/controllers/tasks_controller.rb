@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 	def index
 		@tasks = Task.all
+		@tasks=@tasks.sort_by{|p| p.priority}.reverse
 	end
 	def show
     	@task = Task.find(params[:id])
