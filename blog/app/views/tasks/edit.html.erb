@@ -21,11 +21,15 @@
     <%= form.text_field :title %>
   </p>
  
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
+  
+<p>
+        <%= form.label :priority %><br>
+        <% array = Priority.all.map { |p| [p.name, p.priority] } %>
+        <%= select(:task , :priority ,array) %>
+        
+
+      </p>
+
   <p>
     <%= form.submit %>
   </p>

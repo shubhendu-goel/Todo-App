@@ -22,8 +22,11 @@
 		  </p>
 		 
 		  <p>
-		    <%= form.label :text %><br>
-		    <%= form.text_area :text %>
+		    <%= form.label :priority %><br>
+		    <% array = Priority.all.map { |p| [p.name, p.priority] } %>
+		    <%= select(:task , :priority ,array) %>
+		    
+
 		  </p>
 		 
 		  <p>
