@@ -1,0 +1,17 @@
+<h1>List of all the Tasks in our Todo-App</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+ 
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.text %></td>
+      <td><%= link_to 'Show', task_path(task) %></td>
+    </tr>
+  <% end %>
+</table>
