@@ -1,5 +1,5 @@
+<div style="width: 50%;" class="">
 <h1>This is a new task creation page</h1>
-<div>
 	<h2>Create a new task using the below form</h2>
 		<% if @task.errors.any? %>
     <div id="error_explanation">
@@ -18,17 +18,20 @@
 	<%= form_with scope: :task , url: tasks_path, local: true do |form| %>
 		  <p>
 		    <%= form.label :title %><br>
-		    <%= form.text_field :title %>
+		    <%= form.text_field :title ,class: 'form-control'%>
 		  </p>
 		 
 		  <p>
 		    <%= form.label :priority %><br>
 		    <% array = Priority.all.map { |p| [p.name, p.priority] } %>
-		    <%= select(:task , :priority ,array) %>
+		    <%= select(:task , :priority ,array )   %>
 		    
-
 		  </p>
-		 
+		  <p>
+		  	<%= form.label :DueDate %><br>
+		    
+		 	<%= form.date_field :date%>
+		  </p>
 		  <p>
 		    <%= form.submit %>
 		  </p>
