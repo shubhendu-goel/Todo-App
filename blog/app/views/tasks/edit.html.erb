@@ -1,0 +1,44 @@
+<h1>Edit Task</h1>
+ 
+<%= form_with(model: @task, local: true) do |form| %>
+ 
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@task.errors.count, "error") %> prohibited
+        this task from being saved:
+      </h2>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  
+<p>
+        <%= form.label :priority %><br>
+        <% array = Priority.all.map { |p| [p.name, p.priority] } %>
+        <%= select(:task , :priority ,array) %>
+        
+
+      </p>
+      <p>
+        <%= form.label :DueDate %><br>
+        
+      <%= form.date_field :date%>
+      </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+
+<button class="btn btn-warning" ><%= link_to 'Go Back', controller:"tasks" %></button>
