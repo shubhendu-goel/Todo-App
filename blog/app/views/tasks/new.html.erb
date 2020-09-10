@@ -32,6 +32,14 @@
 		    
 		 	<%= form.date_field :date%>
 		  </p>
+
+		  <p>
+		    <%= form.label :status %><br>
+		    <% array = ['Complete', 'Discarded', 'Pending'] %>
+		    <%= select(:task , :status ,array)   %>
+		    
+		  </p>
+
 		  <p>
 		    <%= form.submit %>
 		  </p>

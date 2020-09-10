@@ -13,6 +13,11 @@
   <%= @task.date %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
 
 <h3 >
 <button class="btn btn-warning"><%= link_to 'Edit', edit_task_path(@task) %></button>
